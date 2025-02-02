@@ -30,11 +30,11 @@ export class UserService {
     } catch (e) {
       if (e instanceof EntityNotFoundError) {
         throw new HttpException(
-            {
-              statusCode: HttpStatus.NOT_FOUND,
-              message: 'User not found',
-            },
-            HttpStatus.NOT_FOUND,
+          {
+            statusCode: HttpStatus.NOT_FOUND,
+            message: 'User not found',
+          },
+          HttpStatus.NOT_FOUND,
         );
       } else {
         throw e;
@@ -48,7 +48,7 @@ export class UserService {
 
   async findOne(id: string) {
     try {
-      return await this.usersRepository.findOneByOrFail({id});
+      return await this.usersRepository.findOneByOrFail({ id });
     } catch (e) {
       if (e instanceof EntityNotFoundError) {
         throw new HttpException(
@@ -74,11 +74,11 @@ export class UserService {
     } catch (e) {
       if (e instanceof EntityNotFoundError) {
         throw new HttpException(
-            {
-              statusCode: HttpStatus.NOT_FOUND,
-              error: 'Data not found',
-            },
-            HttpStatus.NOT_FOUND,
+          {
+            statusCode: HttpStatus.NOT_FOUND,
+            error: 'Data not found',
+          },
+          HttpStatus.NOT_FOUND,
         );
       } else {
         throw e;
@@ -94,20 +94,19 @@ export class UserService {
     });
   }
 
-
   async DeleteUser(id: string) {
     try {
       await this.usersRepository.findOneOrFail({
-        where: {id}
-      })
-    }catch (e) {
+        where: { id },
+      });
+    } catch (e) {
       if (e instanceof EntityNotFoundError) {
         throw new HttpException(
-            {
-              statusCode: HttpStatus.NOT_FOUND,
-              error: 'Data not found',
-            },
-            HttpStatus.NOT_FOUND,
+          {
+            statusCode: HttpStatus.NOT_FOUND,
+            error: 'Data not found',
+          },
+          HttpStatus.NOT_FOUND,
         );
       } else {
         throw e;

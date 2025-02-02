@@ -20,7 +20,16 @@ export class User {
   lastname: string;
 
   @Column()
+  username: string;
+
+  @Column()
   email: string;
+
+  @Column()
+  salt: string;
+
+  @Column()
+  password: string;
 
   @Column({ default: true })
   isActive: boolean;

@@ -11,13 +11,11 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import {UpdateUserDto} from "./dto/update-user.dto";
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(
-      private readonly usersService: UserService
-    ){}
+  constructor(private readonly usersService: UserService) {}
 
   @Post('')
   async create(@Body() createUserDto: CreateUserDto) {
@@ -61,6 +59,5 @@ export class UserController {
   }
 }
 function Public() {
-    throw new Error('Function not implemented.');
+  throw new Error('Function not implemented.');
 }
-

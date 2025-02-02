@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { User } from './../../users/entities/user.entity';
+import { User } from '../../user/entity/user';
 
 @Entity()
 export class Session {
@@ -28,9 +28,9 @@ export class Session {
   @Column({ default: true })
   status: boolean;
 
-  // @CreateDateColumn({
-  //   type: 'timestamp with time zone',
-  //   nullable: false,
-  // })
+  @CreateDateColumn({
+    type: 'timestamp with time zone',
+    nullable: false,
+  })
   createdAt: Date;
 }
